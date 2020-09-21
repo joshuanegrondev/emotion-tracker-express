@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Go with the flow</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section>
+  <h1>Emotions Tracker</h1>
+  <h2>Track your emotions throughout the week!</h2>
+  <h2>Diary Entry</h2>
+  <form action="/messages" method="POST">
+    <input type="date" name="date" placeholder="date">
+    <input type="text" placeholder="emotion" name="emotion">
+    <input type="text" placeholder="What are you thinking on?" name="entry">
+    <button type="submit">Submit</button>
+  </form>
+  <h3>Tracker</h3>
+    <table class="messages">
+      <tr>
+        <td>Date:</td>
+        <td>Emotion:</td>
+        <td>Entry:</td>
+      </tr>
+      <% for(var i=0; i<messages.length; i++) {%>
+        <tr>
+          <td  class="emotionPatterns" style="color:<%= messages[i].emotionEntry %>"><span><%= messages[i].date %></span></td>
+          <td  class="emotionPatterns" style="color:<%= messages[i].emotionEntry %>"><span><%= messages[i].emotion %></span></td>
+          <td  class="emotionPatterns" style="color:<%= messages[i].emotionEntry %>"><span><%= messages[i].entry %></span></td>
+          <td id="delete"><span><i class="fa fa-trash" aria-hidden="true"></i></span><td>
+        </tr>
+        <% } %>
+    </table>
+  </section>
+  <script src="main.js"></script>
+</body>
+</html>
